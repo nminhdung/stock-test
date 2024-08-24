@@ -67,15 +67,14 @@ function Dashboard() {
     username: "",
     email: "",
   });
-  const cookieValue = JSON.parse(Cookie.get("user"));
-
+  
   useEffect(() => {
+    const cookieValue = JSON.parse(Cookie.get("user"));
     setProfile({
       username: cookieValue.username,
       email: cookieValue.email,
     });
   }, []);
-  console.log(profile)
   return (
     <div className="flex relative min-h-screen w-full  ">
       {/* left  */}
