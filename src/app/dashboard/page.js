@@ -67,13 +67,16 @@ function Dashboard() {
     username: "",
     email: "",
   });
-  
+
   useEffect(() => {
-    const cookieValue = JSON.parse(Cookie.get("user"));
-    setProfile({
-      username: cookieValue.username,
-      email: cookieValue.email,
-    });
+    const cookieValue = Cookie.get("user");
+    if (cookieValue) {
+      const cookieUser = JSON.parse(cookieValue);
+      setProfile({
+        username: cookieValue.username,
+        email: cookieValue.email,
+      });
+    }
   }, []);
   return (
     <div className="flex relative min-h-screen w-full  ">
@@ -201,7 +204,7 @@ function Dashboard() {
       </div>
       {/* right  */}
       <div className="w-full h-full pb-[50px] ">
-        <Header setOpenMenu={setOpenMenu} profile={profile}/>
+        <Header setOpenMenu={setOpenMenu} profile={profile} />
         <div className="w-full ">
           <div className="flex items-center gap-3 my-10">
             <h1 className="text-xl font-bold">My Portfollio</h1>
