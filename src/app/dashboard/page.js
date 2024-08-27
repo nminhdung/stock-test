@@ -73,8 +73,8 @@ function Dashboard() {
     if (cookieValue) {
       const cookieUser = JSON.parse(cookieValue);
       setProfile({
-        username: cookieValue.username,
-        email: cookieValue.email,
+        username: cookieUser.username,
+        email: cookieUser.email,
       });
     }
   }, []);
